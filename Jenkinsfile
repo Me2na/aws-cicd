@@ -1,16 +1,16 @@
-pipeline{
-    agent any
-    stages {
-        stage ('build'){
-           steps{
-            sh 'echo build'
-           } 
-        }
-      stage ('test'){
-        steps{
-            sh 'echo test'
-        }
-      }  
+pipeline {
+ agent any
 
-    }
+stages{
+  stage ('git checkout'){
+steps{
+    git branch: 'main', url: 'https://github.com/Me2na/aws-cicd.git'
+ }
+}
+stage ('test'){
+  steps{
+    sh 'echo test'
+  }
+}
+}
 }
